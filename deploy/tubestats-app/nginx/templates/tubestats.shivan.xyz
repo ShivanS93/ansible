@@ -1,0 +1,13 @@
+server {
+	listen 80;
+	server_name tubestats.shivan.xyz;
+	
+	location /static/ {
+		alias /opt/demo/static/;
+	}
+
+	location / {
+		# include proxy
+		proxy_pass http://127.0.0.1:{{tubestats_port}};
+	}
+}

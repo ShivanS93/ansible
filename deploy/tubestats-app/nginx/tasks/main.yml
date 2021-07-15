@@ -1,0 +1,21 @@
+---
+- name: Installing nginx for tubestats
+  apt:
+          name: nginx
+          state: present
+
+- name: Copy tubestats.shivan.xyz
+  template:
+          src: tubestats.shivan.xyz
+          dest: /etc/nginx/sites-available/
+
+- name: Activate the tubestats.shivan.xyz site
+  file:
+          src: /etc/nginx/sites-available/tubestats.shivan.xyz
+          dest: /etc/nginx/sites-enabled/tubestats.shivan.xyz
+          state: link
+
+- name: Restart nginx.service
+  systemd:
+          state: restarted 
+          name: nginx 
