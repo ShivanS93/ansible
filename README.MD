@@ -4,7 +4,15 @@
 
 ## About
 
-This is for my self-hosted projects that sit on the domain shivan.xyz.
+This uses [Ansible](https://docs.ansible.com/), a useful automation tool. This allows me to work on my code locally and then implemented these changes onto
+a live server.
+
+This is for my self-hosted projects that sit on the domain [shivan.xyz](http://shivan.xyz).
+
+## Current apps
+
+- [OptomCalc](https://optomcalc.shivan.xyz)
+- [TubeStats](https://tubestats.shivan.xyz)
 
 ## How to use?
 
@@ -14,14 +22,12 @@ This is for my self-hosted projects that sit on the domain shivan.xyz.
 	```
 2. `files/` will contain any unique source code (e.g. `.env` file). 
 3. `main/` will contain `main.yml`, which is the playbook to run the app including setting up `nginx`. 
-5. `templates/` contains the `nginx` config file. *Ensure to rename the templates file* (e.g. `newapp.shivan.xyz`).
+5. `templates/` contains the `nginx` config file. **Ensure to rename the templates file** (e.g. `newapp.shivan.xyz`).
 6. Add the new playbook to the `deploy.yml` master playbook.
 6. Run the play book.
 	```
 	pipenv run ansible-playbook deploy.yml -i hosts -K
 	```
-
-
 
 The directory structure of this app.
 ```
@@ -45,7 +51,6 @@ The directory structure of this app.
 └── README.MD
 ```
 
-## TODOs
+## Feedback
 
-1. Create a 'template' for a project so `cp` can be applied instead of making new directorie and files. 
-2. Create a playbook for `optomcalc`
+Any feedback is appreciated.
