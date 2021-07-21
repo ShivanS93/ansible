@@ -8,10 +8,13 @@
                     upgrade: dist
                     update_cache: yes
 
-          - role: 'deploy/tubestats-app/nginx'
+          - role: 'deploy/tubestats-app'
             name: nginx for tubestats
             vars: 
                 tubestats_port: 8999
+                domain_name: tubestats.shivan.xyz
+                letsencrypt_email: shivan.sivakumaran@gmail.com
+                user_name: shivan
           
           - role: 'deploy/tubestats-app/letsencrypt'
             name: Setting up SSL

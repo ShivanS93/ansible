@@ -1,6 +1,5 @@
 ---
-# TODO:
-# somehow build docker and then run on port 8999
+# FIXME: stuck on 'Please wait...'
 - name: Create tubestats directory
   file:
           path: /home/{{ user_name }}/tubestats
@@ -21,23 +20,6 @@
           owner: '{{ user_name }}'
           group: '{{ user_name }}'
           mode: '0644'
-
-          #- name: Build tubestats as a docker image
-          #  community.docker.docker_image:
-          #          name: tubestats:latest
-          #          build:
-          #                  path: /home/{{ user_name }}/tubestats
-          #          source: build
-          #          tag: tubestats:latest
-          #
-          #- name: Run tubestats docker image
-          #  community.docker.docker_container:
-          #          name: tubestats:latest
-          #          image: tubestats:latest
-          #          state: present
-          #          ports: 
-          #                - "8999:8999"
-          #
 
 - name: Build docker image and run
   shell: >
