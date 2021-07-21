@@ -1,0 +1,20 @@
+---
+- name: Installing certbot using snap
+  shell: "snap install --classic certbot"
+
+- name: Preparing certbot
+  file:
+   src: /snap/bin/certbot
+   dest: /usr/bin/certbot
+   state: link
+
+- name: Generate certs
+  shell: >
+          certbot --nginx --email '{{ letsencrypt_email }}'
+          --non-interactive --agree-tos
+          -d '{{ domain_name }}'
+
+- name: Restart nginx.service
+  systemd:
+          state: restarted
+          name: nginx

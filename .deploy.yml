@@ -1,0 +1,28 @@
+- hosts: shivan.xyz
+  gather_facts: no
+  become: True
+  roles:
+          - role: 'deploy/common/update_server'
+            name: Update server packages
+            apt:
+                    upgrade: dist
+                    update_cache: yes
+
+          - role: 'deploy/tubestats-app/nginx'
+            name: nginx for tubestats
+            vars: 
+                tubestats_port: 8999
+
+                #- role: 'deploy/tubestats-app/certbot'
+                #name: certbot for tubestats
+
+          - role: 'deploy/tubestats-app/letsencrypt'
+            name: Setting up SSL
+            vars:
+                domain_name: tubestats.shivan.xyz
+                letsencrypt_email: shivan.sivakumaran@gmail.com 
+
+          - role: 'deploy/tubestats-app/tubestats'
+            name: Setting up tubestats app
+            vars: 
+                user_name: shivan
