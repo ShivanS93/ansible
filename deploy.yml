@@ -9,20 +9,9 @@
                     update_cache: yes
 
           - role: 'deploy/tubestats-app'
-            name: nginx for tubestats
+            name: Deploy Tubestats application
             vars: 
                 tubestats_port: 8999
                 domain_name: tubestats.shivan.xyz
                 letsencrypt_email: shivan.sivakumaran@gmail.com
-                user_name: shivan
-          
-          - role: 'deploy/tubestats-app/letsencrypt'
-            name: Setting up SSL
-            vars:
-                    domain_name: tubestats.shivan.xyz
-                    letsencrypt_email: shivan.sivakumaran@gmail.com 
-          
-          - role: 'deploy/tubestats-app/tubestats'
-            name: Setting up tubestats app
-            vars: 
                 user_name: shivan

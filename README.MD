@@ -8,18 +8,40 @@ This is for my self-hosted projects that sit on the domain shivan.xyz.
 
 ## How to use?
 
-The directory structure
-```
-deploy.yml
-deploy
-```
+1. Refer to the directory structure below. First, copy an app directory.
+	e.g. `cp -r ./deploy/example-app ./deploy/new-app`
+2. `files/` will contain any unique source code (e.g. `.env` file). 
+3. `main/` will contain `main.yml`, which is the playbook to run the app including setting up `nginx`. 
+5. `templates/` contains the `nginx` config file. *Ensure to rename the templates file* (e.g. `newapp.shivan.xyz`).
+6. Add the new playbook to the `deploy.yml` master playbook.
+6. Run the play book.
+	```
+		pipenv run ansible-playbook deploy.yml -i hosts -K
+	```
 
-1. Create a directory under `deploy/` (e.g. `optomcalc`).
-2. Inside the new directory, include subdirectories `files` and `main`.
-3. `files/` will contain any unique source code
-4. `main/` will contain `main.yml` files to run the playbook
-5. create an nginx config files (e.g. `optomcalc.shivan.xyz`)
-6. Add the playbook to the `deploy.yml` master play book.
+
+
+The directory structure of this app.
+```
+├── ansible.cfg
+├── deploy
+│   ├── common
+│   │   └── update_server
+│   │       └── main.yml
+│   └── example-app
+│       ├── files
+│ 	│   └── .env 
+│       ├── tasks
+│       │   └── main.yml
+│       └── templates
+│           └── subdomain.shivan.xyz
+├── deploy.yml
+├── hosts
+├── LICENSE
+├── Pipfile
+├── Pipfile.lock
+└── README.MD
+```
 
 ## TODOs
 
