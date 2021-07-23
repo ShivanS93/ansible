@@ -34,8 +34,13 @@ This is for my self-hosted projects that sit on the domain [shivan.xyz](http://s
 6. Add the new playbook to the `deploy.yml` master playbook.
 6. Run the play book.
 	```
-	pipenv run ansible-playbook deploy.yml -i hosts -K
+	pipenv run ansible-playbook deploy-all.yml -i hosts -K
 	```
+7. To run just one app.
+	```
+	pipenv run ansible-playbook deploy-app1.yml -i hosts -K
+	```
+
 
 The directory structure of this app.
 ```
@@ -51,7 +56,8 @@ The directory structure of this app.
 │       │   └── main.yml
 │       └── templates
 │           └── subdomain.shivan.xyz
-├── deploy.yml
+├── deploy-all.yml 	# runs all apps
+├── deploy-app1.yml	# installs all apps
 ├── hosts
 ├── LICENSE
 ├── Pipfile

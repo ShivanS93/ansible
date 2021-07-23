@@ -40,14 +40,13 @@
 
 #
 # Setting up project
-# FIXME: Stuck on 'Please wait...'
 #
-- name: Create tubestats directory
+- name: Create {{ app_name }} directory
   file:
           path: /home/shivan/{{ app_name }}
           state: directory
 
-- name: Git pull/clone tubestats repo
+- name: Git pull/clone {{ app_name }} repo
   ansible.builtin.git:
           repo: '{{ repo_link }}'
           dest: /home/shivan/{{ app_name }}
@@ -55,10 +54,10 @@
           version: main
           update: yes
  
-- name: Copy .env file for tubestates app
+- name: Copy .env file for {{ app_name }} app
   ansible.builtin.copy:
           src: .env
-          dest: /home/shivan/{{ app_name }}/.env
+          dest: /home/shivan/{{ app_name}}/{{ app_name }}/{{ app_name }}/.env
           owner: 'shivan'
           group: 'shivan'
           mode: '0644'
@@ -66,6 +65,4 @@
 - name: Build docker image and run
   shell: >
          cd /home/shivan/{{ app_name }} &&
-         docker build -t {{ app_name }}:latest . &&
-         nohup docker run -p 8999:8999/tcp --rm {{ app_name }}:latest &
- 
+         nohup docker-compose up --build

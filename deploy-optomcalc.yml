@@ -1,0 +1,14 @@
+- hosts: shivan.xyz
+  gather_facts: no
+  become: True
+  roles:
+          - role: 'deploy/common/'
+            name: Common tasks
+
+          - role: 'deploy/optomcalc-app'
+            name: Deploy OptomCalc application
+            vars: 
+                app_name: optomcalc
+                repo_link: https://github.com/shivans93/optomcalc
+                app_port: 8000
+                letsencrypt_email: shivan.sivakumaran@gmail.com

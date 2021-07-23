@@ -2,16 +2,13 @@
   gather_facts: no
   become: True
   roles:
-          - role: 'deploy/common/update_server'
-            name: Update server packages
-            apt:
-                    upgrade: dist
-                    update_cache: yes
+          - role: 'deploy/common/'
+            name: Common tasks
 
           - role: 'deploy/tubestats-app'
             name: Deploy Tubestats application
             vars: 
+                app_name: tubestats
+                repo_link: https://github.com/shivans93/tubestats
                 tubestats_port: 8999
-                domain_name: tubestats.shivan.xyz
                 letsencrypt_email: shivan.sivakumaran@gmail.com
-                user_name: shivan

@@ -2,5 +2,5 @@
 - name: install and upgrade server packages
   apt:
           upgrade: dist
+          force_apt_get: yes
           update_cache: yes
-  when: ansible_distribution == "Ubuntu"
