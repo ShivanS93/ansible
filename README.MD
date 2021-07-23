@@ -16,6 +16,14 @@ This is for my self-hosted projects that sit on the domain [shivan.xyz](http://s
 
 ## How to use?
 
+0. Ansible uses ssh configuation to connect to the server. Ensure the config is set up:
+	```
+	Host shivan.xyz
+	IdentityFile ~/.ssh/path/to/key
+	IdentitiesOnly yes
+	User <user>
+	Port <port number>
+	```
 1. Refer to the directory structure below. First, copy an app directory.
 	```
 	cp -r ./deploy/example-app ./deploy/new-app
@@ -33,10 +41,10 @@ The directory structure of this app.
 ```
 ├── ansible.cfg
 ├── deploy
-│   ├── common
-│   │   └── update_server
+│   ├── common	# common tasks to run (e.g. update server)
+│   │   └── tasks
 │   │       └── main.yml
-│   └── example-app
+│   └── example-app	# app related automation
 │       ├── files
 │ 	│   └── .env 
 │       ├── tasks
