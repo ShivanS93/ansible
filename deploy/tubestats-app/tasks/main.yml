@@ -65,7 +65,7 @@
 
 - name: Build docker image and run
   shell: >
-         cd /home/shivan/{{ app_name }} &&
-         docker build -t {{ app_name }}:latest . &&
-         nohup docker run -p 8999:8999/tcp --rm {{ app_name }}:latest &
+         cd /home/shivan/tubestats &&
+         docker build -t tubestats:latest . &&
+         nohup docker run -p 8999:8999/tcp --rm tubestats:latest &
  
