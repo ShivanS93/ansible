@@ -7,7 +7,7 @@
 
           - role: 'deploy/tubestats-app'
             name: Deploy Tubestats application
-            vars: 
+            vars:
                 app_name: tubestats
                 repo_link: https://github.com/shivans93/tubestats
                 tubestats_port: 8999
@@ -15,27 +15,8 @@
 
           - role: 'deploy/optomcalc-app'
             name: Deploy OptomCalc application
-            vars: 
+            vars:
                 app_name: optomcalc
                 repo_link: https://github.com/shivans93/optomcalc
                 app_port: 8000
                 letsencrypt_email: shivan.sivakumaran@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
