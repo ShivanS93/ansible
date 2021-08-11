@@ -51,17 +51,9 @@
           version: main
           update: yes
  
-- name: Copy .env file for {{ app_name }} app
-  ansible.builtin.copy:
-          src: .env
-          dest: /home/shivan/{{ app_name }}/.env
-          owner: 'shivan'
-          group: 'shivan'
-          mode: '0644'
-
 - name: Build docker image and run
   shell: >
-         cd /home/shivan/tubestats &&
-         docker build -t tubestats:latest . &&
-         nohup docker run -p 8999:8999/tcp --rm tubestats:latest &
+         cd /home/shivan/lasha &&
+         docker build -t lasha:latest . &&
+         nohup docker run -p 8998:8998/tcp --rm lasha:latest &
  

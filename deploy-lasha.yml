@@ -1,0 +1,14 @@
+- hosts: shivan.xyz
+  gather_facts: no
+  become: True
+  roles:
+          - role: 'deploy/common/'
+            name: Common tasks
+
+          - role: 'deploy/lasha-app'
+            name: Deploy lasha application
+            vars: 
+                app_name: lasha
+                repo_link: https://github.com/shivans93/How-good-is-Lasha
+                lasha_port: 8998
+                letsencrypt_email: shivan.sivakumaran@gmail.com

@@ -65,4 +65,4 @@
 - name: Build docker image and run
   shell: >
          cd /home/shivan/{{ app_name }} &&
-         nohup docker-compose up --build
+         nohup docker-compose up --build &

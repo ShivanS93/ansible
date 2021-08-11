@@ -1,0 +1,27 @@
+upstream lasha_web {
+	server 0.0.0.0:{{ lasha_port }};
+}
+
+server {
+	listen 80;
+	server_name lasha.shivan.xyz;
+
+	location / {
+		include proxy_params;
+		proxy_pass http://lasha_web;
+	}
+
+	location = / {
+		include proxy_params;
+		proxy_pass http://lasha_web;
+	}
+
+	location /stream { 
+		include proxy_params;
+		proxy_pass http://lasha_web/stream;
+		proxy_http_version 1.1; 
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "upgrade";
+		proxy_read_timeout 86400;
+	}
+}
