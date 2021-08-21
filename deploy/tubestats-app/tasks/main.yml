@@ -62,6 +62,8 @@
 - name: Build docker image and run
   shell: >
          cd /home/shivan/tubestats &&
+         docker kill tubestats_app &&
          docker build -t tubestats:latest . &&
-         nohup docker run -p 8999:8999/tcp --rm tubestats:latest &
+         docker run --name tubestats_app -d -p 8999:8999/tcp \
+                --rm tubestats:latest --restart until-stopped
  

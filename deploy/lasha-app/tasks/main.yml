@@ -55,5 +55,7 @@
   shell: >
          cd /home/shivan/lasha &&
          docker build -t lasha:latest . &&
-         nohup docker run -p 8998:8998/tcp --rm lasha:latest &
+         docker kill lasha_app
+         docker run --name lasha_app -d -p 8998:8998/tcp \
+         --rm lasha:latest --restart until-stopped
  

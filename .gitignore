@@ -38,7 +38,7 @@ pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
-.tox/
+.tox
 .nox/
 .coverage
 .coverage.*
@@ -142,3 +142,4 @@ cython_debug/
 *.swo
 
 #custom
+ansible.log
