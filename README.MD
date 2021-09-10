@@ -13,6 +13,7 @@ This is for my self-hosted projects that sit on the domain [shivan.xyz](http://s
 
 - [OptomCalc](https://optomcalc.shivan.xyz)
 - [TubeStats](https://tubestats.shivan.xyz)
+- [HowGoodIsLasha](https://lasha.shivan.xyz)
 
 ## How to use?
 
